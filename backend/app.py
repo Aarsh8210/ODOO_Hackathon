@@ -23,10 +23,18 @@ def login():
 
 @app.route("/leave/apply", methods=["POST"])
 def apply_leave():
-    data = request.json
-    data["status"] = "Pending"
-    leave_requests.append(data)
+    data = request.get_json(force=True)
+
+    leave_requests.append({
+        "type": data.get("type"),
+        "from": data.get("from"),
+        "to": data.get("to"),
+        "remarks": data.get("remarks"),
+        "status": "Pending"
+    })
+
     return jsonify({"status": "Leave request submitted"})
+
 
 
 @app.route("/leave/list", methods=["GET"])
