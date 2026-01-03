@@ -138,14 +138,31 @@ def get_admin_profile():
     return jsonify(admin_profile)
 
 
-@app.route("/admin/profile/update", methods=["POST"])
-def update_admin_profile():
+@app.route("/admin/profile/full-update", methods=["POST"])
+def admin_full_update_profile():
     data = request.get_json(force=True)
 
-    admin_profile["phone"] = data.get("phone", admin_profile["phone"])
-    admin_profile["address"] = data.get("address", admin_profile["address"])
+    for key in admin_profile:
+        if key in data:
+            admin_profile[key] = data[key]
 
-    return jsonify({"status": "Admin profile updated"})
+    return jsonify({"status": "Admin profile fully updated"})
+
+@app.route("/admin/employee/profile", methods=["GET"])
+def admin_get_employee_profile():
+    return jsonify(employee_profile)
+
+
+@app.route("/admin/employee/profile/update", methods=["POST"])
+def admin_update_employee_profile():
+    data = request.get_json(force=True)
+
+    # Admin can update all fields
+    for key in employee_profile:
+        if key in data:
+            employee_profile[key] = data[key]
+
+    return jsonify({"status": "Employee profile updated by admin"})
 
 
 if __name__ == "__main__":
