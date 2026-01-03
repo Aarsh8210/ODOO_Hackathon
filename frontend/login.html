@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Dayflow | Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h2>Dayflow HRMS</h2>
 
@@ -11,20 +13,21 @@
         <input type="email" placeholder="Email" required>
         <input type="password" placeholder="Password" required>
 
-        <select>
+        <select id="role">
             <option value="employee">Employee</option>
             <option value="admin">Admin / HR</option>
-            <select id="role">
         </select>
+
 
         <button type="button" onclick="login()">Login</button>
         <p style="text-align:center;">
-    New user?
-    <a href="signup.html">Create an account</a>
-</p>
+            New user?
+            <a href="signup.html">Create an account</a>
+        </p>
 
     </form>
 
     <script src="script.js"></script>
 </body>
+
 </html>

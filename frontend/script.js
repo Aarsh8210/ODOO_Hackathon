@@ -1,8 +1,8 @@
 function login() {
     const email = document.querySelector('input[type="email"]').value;
     const password = document.querySelector('input[type="password"]').value;
-    const role = document.querySelector('select').value;
     const selectedRole = document.getElementById("role").value;
+
     fetch("http://127.0.0.1:5000/login", {
         method: "POST",
         headers: {
@@ -13,23 +13,23 @@ function login() {
             password: password,
             role: selectedRole
         })
-
     })
-        .then(res => {
-            if (!res.ok) throw new Error("Invalid login");
-            return res.json();
-        })
-        .then(data => {
-            if (data.role === "employee") {
-                window.location.href = "employee_dashboard.html";
-            } else if (data.role === "admin") {
-                window.location.href = "admin_dashboard.html";
-            }
-        })
-        .catch(err => {
-            alert("Login failed");
-        });
+    .then(res => {
+        if (!res.ok) throw new Error("Invalid login");
+        return res.json();
+    })
+    .then(data => {
+        if (data.role === "employee") {
+            window.location.href = "employee_dashboard.html";
+        } else if (data.role === "admin") {
+            window.location.href = "admin_dashboard.html";
+        }
+    })
+    .catch(() => {
+        alert("Login failed. Check credentials and role.");
+    });
 }
+
 function applyLeave() {
     const leaveType = document.querySelector("select").value;
     const fromDate = document.getElementById("fromDate").value;
