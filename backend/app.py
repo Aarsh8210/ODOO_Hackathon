@@ -99,6 +99,32 @@ def attendance_checkout():
 def attendance_list():
     return jsonify(attendance_records)
 
+employee_profile = {
+    "name": "John Doe",
+    "email": "emp@dayflow.com",
+    "role": "Employee",
+    "department": "Engineering",
+    "designation": "Software Engineer",
+    "phone": "9876543210",
+    "address": "Ahmedabad, Gujarat",
+    "salary": "₹30,000"
+}
+
+@app.route("/profile", methods=["GET"])
+def get_profile():
+    return jsonify(employee_profile)
+
+
+@app.route("/profile/update", methods=["POST"])
+def update_profile():
+    data = request.get_json(force=True)
+
+    # Employee can edit limited fields
+    employee_profile["phone"] = data.get("phone", employee_profile["phone"])
+    employee_profile["address"] = data.get("address", employee_profile["address"])
+
+    return jsonify({"status": "Profile updated"})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
