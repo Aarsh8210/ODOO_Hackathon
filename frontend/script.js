@@ -202,3 +202,36 @@ function updateAdminProfile() {
     });
 }
 
+function loadEmployeeForAdmin() {
+    fetch("http://127.0.0.1:5000/admin/employee/profile")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("emp_name").value = data.name;
+            document.getElementById("emp_email").value = data.email;
+            document.getElementById("emp_department").value = data.department;
+            document.getElementById("emp_designation").value = data.designation;
+            document.getElementById("emp_phone").value = data.phone;
+            document.getElementById("emp_address").value = data.address;
+            document.getElementById("emp_salary").value = data.salary;
+        });
+}
+
+function updateEmployeeByAdmin() {
+    fetch("http://127.0.0.1:5000/admin/employee/profile/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name: document.getElementById("emp_name").value,
+            email: document.getElementById("emp_email").value,
+            department: document.getElementById("emp_department").value,
+            designation: document.getElementById("emp_designation").value,
+            phone: document.getElementById("emp_phone").value,
+            address: document.getElementById("emp_address").value,
+            salary: document.getElementById("emp_salary").value
+        })
+    })
+    .then(res => res.json())
+    .then(() => {
+        alert("Employee profile updated by admin");
+    });
+}

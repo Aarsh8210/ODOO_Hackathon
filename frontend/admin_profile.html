@@ -22,11 +22,27 @@
     <textarea id="address" placeholder="Address"></textarea>
     <button onclick="updateAdminProfile()">Update Profile</button>
 </div>
+<h3>Edit Employee Profile</h3>
+
+<div class="card">
+    <input type="text" id="emp_name" placeholder="Name">
+    <input type="text" id="emp_email" placeholder="Email">
+    <input type="text" id="emp_department" placeholder="Department">
+    <input type="text" id="emp_designation" placeholder="Designation">
+    <input type="text" id="emp_phone" placeholder="Phone">
+    <textarea id="emp_address" placeholder="Address"></textarea>
+    <input type="text" id="emp_salary" placeholder="Salary">
+
+    <button onclick="updateEmployeeByAdmin()">Update Employee</button>
+</div>
+
 
 <script src="script.js"></script>
 <script>
     loadAdminProfile();
+    loadEmployeeForAdmin();
 </script>
+
 
 </body>
 </html>
