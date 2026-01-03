@@ -235,3 +235,33 @@ function updateEmployeeByAdmin() {
         alert("Employee profile updated by admin");
     });
 }
+function signup() {
+    const employeeId = document.getElementById("employeeId").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const role = document.getElementById("role").value;
+
+    fetch("http://127.0.0.1:5000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            employee_id: employeeId,
+            email: email,
+            password: password,
+            role: role
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+        } else {
+            alert("Signup successful! Please login.");
+            window.location.href = "login.html";
+        }
+    })
+    .catch(err => {
+        alert("Signup failed");
+        console.error(err);
+    });
+}
