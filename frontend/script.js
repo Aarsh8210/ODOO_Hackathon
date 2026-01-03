@@ -2,7 +2,7 @@ function login() {
     const email = document.querySelector('input[type="email"]').value;
     const password = document.querySelector('input[type="password"]').value;
     const role = document.querySelector('select').value;
-
+    const selectedRole = document.getElementById("role").value;
     fetch("http://127.0.0.1:5000/login", {
         method: "POST",
         headers: {
@@ -10,23 +10,25 @@ function login() {
         },
         body: JSON.stringify({
             email: email,
-            password: password
+            password: password,
+            role: selectedRole
         })
+
     })
-    .then(res => {
-        if (!res.ok) throw new Error("Invalid login");
-        return res.json();
-    })
-    .then(data => {
-        if (data.role === "employee") {
-            window.location.href = "employee_dashboard.html";
-        } else if (data.role === "admin") {
-            window.location.href = "admin_dashboard.html";
-        }
-    })
-    .catch(err => {
-        alert("Login failed");
-    });
+        .then(res => {
+            if (!res.ok) throw new Error("Invalid login");
+            return res.json();
+        })
+        .then(data => {
+            if (data.role === "employee") {
+                window.location.href = "employee_dashboard.html";
+            } else if (data.role === "admin") {
+                window.location.href = "admin_dashboard.html";
+            }
+        })
+        .catch(err => {
+            alert("Login failed");
+        });
 }
 function applyLeave() {
     const leaveType = document.querySelector("select").value;
@@ -51,14 +53,14 @@ function applyLeave() {
             remarks: remarks
         })
     })
-    .then(res => res.json())
-    .then(data => {
-        alert("Leave request submitted successfully");
-    })
-    .catch(err => {
-        alert("Error submitting leave");
-        console.error(err);
-    });
+        .then(res => res.json())
+        .then(data => {
+            alert("Leave request submitted successfully");
+        })
+        .catch(err => {
+            alert("Error submitting leave");
+            console.error(err);
+        });
 }
 function loadLeaves() {
     fetch("http://127.0.0.1:5000/leave/list")
@@ -90,12 +92,12 @@ function updateLeave(index, status) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ index, status })
     })
-    .then(res => res.json())
-    .then(() => {
-        alert("Leave " + status);
-        loadLeaves();
-    })
-    .catch(err => console.error(err));
+        .then(res => res.json())
+        .then(() => {
+            alert("Leave " + status);
+            loadLeaves();
+        })
+        .catch(err => console.error(err));
 }
 function checkIn() {
     fetch("http://127.0.0.1:5000/attendance/checkin", {
@@ -103,11 +105,11 @@ function checkIn() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: "emp@dayflow.com" })
     })
-    .then(res => res.json())
-    .then(data => {
-        if (data.error) alert(data.error);
-        else alert("Checked in successfully");
-    });
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) alert(data.error);
+            else alert("Checked in successfully");
+        });
 }
 
 function checkOut() {
@@ -116,11 +118,11 @@ function checkOut() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: "emp@dayflow.com" })
     })
-    .then(res => res.json())
-    .then(data => {
-        if (data.error) alert(data.error);
-        else alert("Checked out successfully");
-    });
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) alert(data.error);
+            else alert("Checked out successfully");
+        });
 }
 function loadAttendance() {
     fetch("http://127.0.0.1:5000/attendance/list")
@@ -168,10 +170,10 @@ function updateProfile() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, address })
     })
-    .then(res => res.json())
-    .then(() => {
-        alert("Profile updated successfully");
-    });
+        .then(res => res.json())
+        .then(() => {
+            alert("Profile updated successfully");
+        });
 }
 function loadAdminProfile() {
     fetch("http://127.0.0.1:5000/admin/profile")
@@ -196,10 +198,10 @@ function updateAdminProfile() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, address })
     })
-    .then(res => res.json())
-    .then(() => {
-        alert("Admin profile updated successfully");
-    });
+        .then(res => res.json())
+        .then(() => {
+            alert("Admin profile updated successfully");
+        });
 }
 
 function loadEmployeeForAdmin() {
@@ -230,10 +232,10 @@ function updateEmployeeByAdmin() {
             salary: document.getElementById("emp_salary").value
         })
     })
-    .then(res => res.json())
-    .then(() => {
-        alert("Employee profile updated by admin");
-    });
+        .then(res => res.json())
+        .then(() => {
+            alert("Employee profile updated by admin");
+        });
 }
 function signup() {
     const employeeId = document.getElementById("employeeId").value;
@@ -251,19 +253,19 @@ function signup() {
             role: role
         })
     })
-    .then(res => res.json())
-    .then(data => {
-        if (data.error) {
-            alert(data.error);
-        } else {
-            alert("Signup successful! Please login.");
-            window.location.href = "login.html";
-        }
-    })
-    .catch(err => {
-        alert("Signup failed");
-        console.error(err);
-    });
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                alert("Signup successful! Please login.");
+                window.location.href = "login.html";
+            }
+        })
+        .catch(err => {
+            alert("Signup failed");
+            console.error(err);
+        });
 }
 function goEmployeeDashboard() {
     window.location.href = "employee_dashboard.html";

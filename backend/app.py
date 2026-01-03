@@ -16,7 +16,12 @@ leave_requests = []
 def login():
     data = request.get_json(force=True)
     for user in users:
-        if user["email"] == data["email"] and user["password"] == data["password"]:
+        if (
+    user["email"] == data["email"]
+    and user["password"] == data["password"]
+    and user["role"] == data["role"]
+):
+
             return jsonify({"status": "success", "role": user["role"]})
     return jsonify({"status": "error", "message": "Invalid credentials"}), 401
 
