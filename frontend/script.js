@@ -28,3 +28,36 @@ function login() {
         alert("Login failed");
     });
 }
+function applyLeave() {
+    const leaveType = document.querySelector("select").value;
+    const fromDate = document.getElementById("fromDate").value;
+    const toDate = document.getElementById("toDate").value;
+    const remarks = document.querySelector("textarea").value;
+
+    if (!fromDate || !toDate) {
+        alert("Please select dates");
+        return;
+    }
+
+    fetch("http://127.0.0.1:5000/leave/apply", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            type: leaveType,
+            from: fromDate,
+            to: toDate,
+            remarks: remarks
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert("Leave request submitted successfully");
+    })
+    .catch(err => {
+        alert("Error submitting leave");
+        console.error(err);
+    });
+}
+
