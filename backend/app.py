@@ -53,6 +53,51 @@ def update_leave():
 
     leave_requests[index]["status"] = status
     return jsonify({"status": "Leave updated"}), 200
+from datetime import datetime
+
+attendance_records = []
+
+@app.route("/attendance/checkin", methods=["POST"])
+def attendance_checkin():
+    data = request.get_json(force=True)
+    email = data.get("email")
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    for record in attendance_records:
+        if record["email"] == email and record["date"] == today:
+            return jsonify({"error": "Already checked in"}), 400
+
+    attendance_records.append({
+        "email": email,
+        "date": today,
+        "check_in": datetime.now().strftime("%H:%M:%S"),
+        "check_out": None,
+        "status": "Present"
+    })
+
+    return jsonify({"status": "Checked in"})
+
+
+@app.route("/attendance/checkout", methods=["POST"])
+def attendance_checkout():
+    data = request.get_json(force=True)
+    email = data.get("email")
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    for record in attendance_records:
+        if record["email"] == email and record["date"] == today:
+            if record["check_out"] is not None:
+                return jsonify({"error": "Already checked out"}), 400
+
+            record["check_out"] = datetime.now().strftime("%H:%M:%S")
+            return jsonify({"status": "Checked out"})
+
+    return jsonify({"error": "No check-in found"}), 400
+
+
+@app.route("/attendance/list", methods=["GET"])
+def attendance_list():
+    return jsonify(attendance_records)
 
 
 if __name__ == "__main__":
