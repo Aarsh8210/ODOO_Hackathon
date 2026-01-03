@@ -66,20 +66,19 @@
             background-color: #922b21;
         }
 
-        .status {
-            font-weight: bold;
-        }
-
         .pending {
             color: #f39c12;
+            font-weight: bold;
         }
 
         .approved {
             color: #27ae60;
+            font-weight: bold;
         }
 
         .rejected {
             color: #c0392b;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -98,11 +97,14 @@
             </tr>
         </thead>
         <tbody id="leaveTable">
-            <!-- Leave data will be inserted here -->
+            <!-- Leave data will be injected by JavaScript -->
         </tbody>
     </table>
 
-    <script src="script.js"></script>
+    <!-- Load JavaScript AFTER HTML -->
+    <script src="./script.js"></script>
+
+    <!-- Call loadLeaves only after script is loaded -->
     <script>
         loadLeaves();
     </script>
