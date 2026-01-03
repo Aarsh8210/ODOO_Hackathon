@@ -268,3 +268,6 @@ function signup() {
 function goEmployeeDashboard() {
     window.location.href = "employee_dashboard.html";
 }
+function goAdminDashboard() {
+    window.location.href = "admin_dashboard.html";
+}
