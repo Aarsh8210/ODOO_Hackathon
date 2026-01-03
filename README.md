@@ -42,10 +42,11 @@ It streamlines core HR operations such as authentication, attendance, leave mana
 ## ▶️ How to Run
 ```bash
 python backend/app.py
+```
 Open frontend/login.html in browser.
 ## 🔑 Demo Credentials
 
-Employee
+###Employee
 
 Email: emp@dayflow.com
 
@@ -53,7 +54,7 @@ Password: 1234
 
 Role: Employee
 
-Admin / HR
+###Admin / HR
 
 Email: admin@dayflow.com
 
@@ -61,7 +62,7 @@ Password: 1234
 
 Role: Admin / HR
 
-🔮 Future Scope
+##🔮 Future Scope
 
 Database integration
 
@@ -71,7 +72,7 @@ Payroll management
 
 Attendance analytics
 
-👥 Team
+##👥 Team
 
 Aarsh Shah – Team Lead & Backend
 
@@ -79,21 +80,3 @@ Shubham Shah – Frontend
 
 Vraj Tejwani – UI & Integration
 
----
-
-## ✅ WHY THIS VERSION IS PERFECT FOR JUDGES
-✔ Short and scannable  
-✔ Clearly shows **what is implemented**  
-✔ Maps directly to functional requirements  
-✔ Mentions future scope (without excuses)  
-✔ No unnecessary technical noise  
-
----
-
-## 📌 FINAL STEP
-Commit it:
-
-```bash
-git add README.md
-git commit -m "Add concise README for judges"
-git push
