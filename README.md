@@ -1,30 +1,79 @@
-# Odoo x GCET Hackathon 2026
+# Dayflow – Human Resource Management System (HRMS)
 
-## Team Members
-- Aarsh Shah (Team Leader)
-- Shubham Shah
-- Vraj Tejwani
+Dayflow is a role-based Human Resource Management System designed to streamline
+attendance tracking, leave management, and basic payroll viewing for organizations.
+The system provides separate dashboards for Employees and Admin/HR users.
+
+---
 
 ## Problem Statement
-(To be announced during the hackathon)
 
-## Project Description
-This project is being developed as part of the **Odoo x GCET Hackathon 2026**.
-The objective is to design and build a practical, real-world software solution
-based on the problem statement provided during the hackathon.
+The objective of Dayflow is to build a centralized HRMS platform that digitizes
+daily HR operations such as employee attendance, leave management, and payroll viewing,
+while ensuring secure, role-based access for Employees and Admin/HR.
+
+---
+
+## Features Implemented (MVP)
+
+### Employee Features
+- Secure login
+- View personal profile
+- Check-in and check-out attendance
+- Apply for leave
+- View leave status (Pending / Approved / Rejected)
+- View payroll details (read-only)
+
+### Admin / HR Features
+- Secure login
+- View employee list
+- View attendance records
+- Approve or reject leave requests
+- View payroll details of employees
+
+---
 
 ## Tech Stack
+
 - Frontend: HTML, CSS, JavaScript
 - Backend: Python (Flask)
-- Database: SQLite
+- Database: In-memory data / SQLite (prototype)
 - Version Control: Git & GitHub
 
+---
+
+## Project Structure
+
+ODOO_Hackathon/
+│── backend/
+│ └── app.py
+│── frontend/
+│ ├── login.html
+│ ├── employee_dashboard.html
+│ ├── admin_dashboard.html
+│ ├── leave.html
+│ ├── style.css
+│ └── script.js
+│── README.md
+│── .gitignore
+
+---
+
+## Team Members
+
+- **Aarsh Shah** – Team Leader  
+  Backend development, API design, integration, and project coordination
+
+- **Shubham Shah**  
+  Frontend UI/UX design and implementation
+
+- **Vraj Tejwani**  
+  Documentation, validation logic, testing workflows, and feature planning
+
+---
+
 ## How to Run the Project
-Instructions will be updated once development begins.
 
-## Project Status
-🚧 Initial setup completed. Development will start during the hackathon.
-
-## Notes
-- This repository will be actively updated during the hackathon.
-- Commit history will reflect team collaboration.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Aarsh8210/ODOO_Hackathon.git
