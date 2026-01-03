@@ -97,4 +97,29 @@ function updateLeave(index, status) {
     })
     .catch(err => console.error(err));
 }
+function checkIn() {
+    fetch("http://127.0.0.1:5000/attendance/checkin", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: "emp@dayflow.com" })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.error) alert(data.error);
+        else alert("Checked in successfully");
+    });
+}
+
+function checkOut() {
+    fetch("http://127.0.0.1:5000/attendance/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: "emp@dayflow.com" })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.error) alert(data.error);
+        else alert("Checked out successfully");
+    });
+}
 
