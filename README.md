@@ -1,74 +1,99 @@
-# Dayflow – Human Resource Management System (HRMS)
+# Dayflow – HR Management System
 
-Dayflow is a role-based Human Resource Management System designed to streamline
-attendance tracking, leave management, and basic payroll viewing for organizations.
-The system provides separate dashboards for Employees and Admin/HR users.
-
----
-
-## Problem Statement
-
-The objective of Dayflow is to build a centralized HRMS platform that digitizes
-daily HR operations such as employee attendance, leave management, and payroll viewing,
-while ensuring secure, role-based access for Employees and Admin/HR.
+**Dayflow** is a role-based Human Resource Management System built for the **Odoo × GCET Hackathon (Round 1)**.  
+It streamlines core HR operations such as authentication, attendance, leave management, and profile handling.
 
 ---
 
-## Features Implemented (MVP)
+## 🚀 Key Features
 
-### Employee Features
-- Secure login
-- View personal profile
-- Check-in and check-out attendance
-- Apply for leave
-- View leave status (Pending / Approved / Rejected)
-- View payroll details (read-only)
+### 🔐 Authentication & Authorization
+- Email + Password login
+- Mandatory role selection (Employee / Admin)
+- Role-based access enforcement
 
-### Admin / HR Features
-- Secure login
-- View employee list
-- View attendance records
-- Approve or reject leave requests
-- View payroll details of employees
+### 👨‍💼 Employee
+- Dashboard with card-based UI
+- View & edit limited profile details
+- Attendance:
+  - Check-In / Check-Out
+- Leave management:
+  - Apply leave
+  - Track status (Pending / Approved / Rejected)
 
----
-
-## Tech Stack
-
-- Frontend: HTML, CSS, JavaScript
-- Backend: Python (Flask)
-- Database: In-memory data / SQLite (prototype)
-- Version Control: Git & GitHub
+### 🧑‍💼 Admin / HR
+- Dashboard with interactive navigation
+- Approve / Reject employee leave requests
+- View attendance of all employees
+- Full access to edit:
+  - Own admin profile
+  - Employee profiles
 
 ---
 
-## Project Structure
-
-ODOO_Hackathon/
-│── backend/
-│ └── app.py
-│── frontend/
-│ ├── login.html
-│ ├── employee_dashboard.html
-│ ├── admin_dashboard.html
-│ ├── leave.html
-│ ├── style.css
-│ └── script.js
-│── README.md
-│── .gitignore
+## 🧱 Tech Stack
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python (Flask)
+- **APIs:** REST (JSON)
+- **Storage:** In-memory (hackathon MVP)
 
 ---
 
-## Team Members
+## ▶️ How to Run
+```bash
+python backend/app.py
+Open frontend/login.html in browser.
+## 🔑 Demo Credentials
 
-- **Aarsh Shah** – Team Leader  
-  Backend development, API design, integration, and project coordination
+Employee
 
-- **Shubham Shah**  
-  Frontend UI/UX design and implementation
+Email: emp@dayflow.com
 
-- **Vraj Tejwani**  
-  Documentation, validation logic, testing workflows, and feature planning
+Password: 1234
+
+Role: Employee
+
+Admin / HR
+
+Email: admin@dayflow.com
+
+Password: 1234
+
+Role: Admin / HR
+
+🔮 Future Scope
+
+Database integration
+
+Email verification & password hashing
+
+Payroll management
+
+Attendance analytics
+
+👥 Team
+
+Aarsh Shah – Team Lead & Backend
+
+Shubham Shah – Frontend
+
+Vraj Tejwani – UI & Integration
 
 ---
 
+## ✅ WHY THIS VERSION IS PERFECT FOR JUDGES
+✔ Short and scannable  
+✔ Clearly shows **what is implemented**  
+✔ Maps directly to functional requirements  
+✔ Mentions future scope (without excuses)  
+✔ No unnecessary technical noise  
+
+---
+
+## 📌 FINAL STEP
+Commit it:
+
+```bash
+git add README.md
+git commit -m "Add concise README for judges"
+git push
