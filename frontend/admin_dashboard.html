@@ -1,107 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - Dayflow HRMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #fff;
-        }
-
-        th,
-        td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-
-        th {
-            background-color: #2c3e50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        button {
-            padding: 6px 12px;
-            margin: 2px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .approve {
-            background-color: #27ae60;
-            color: white;
-        }
-
-        .reject {
-            background-color: #c0392b;
-            color: white;
-        }
-
-        .approve:hover {
-            background-color: #1e8449;
-        }
-
-        .reject:hover {
-            background-color: #922b21;
-        }
-
-        .pending {
-            color: #f39c12;
-            font-weight: bold;
-        }
-
-        .approved {
-            color: #27ae60;
-            font-weight: bold;
-        }
-
-        .rejected {
-            color: #c0392b;
-            font-weight: bold;
-        }
-    </style>
+    <!-- Use common stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Admin Dashboard</h1>
-    <div class="dashboard">
+<h2>Admin Dashboard</h2>
+
+<!-- ================= DASHBOARD CARDS ================= -->
+<div class="dashboard">
     <div class="card">
         <h3>My Profile</h3>
         <a href="admin_profile.html">View Profile</a>
     </div>
 
     <div class="card">
-        <h3>Employee Leave</h3>
-        <p>Manage leave requests below</p>
+        <h3>Leave Management</h3>
+        <p>Approve / Reject employee leaves</p>
     </div>
 
     <div class="card">
         <h3>Attendance</h3>
-        <p>View attendance records</p>
+        <p>View employee attendance</p>
     </div>
 
     <div class="card">
@@ -110,51 +36,48 @@
     </div>
 </div>
 
+<!-- ================= LEAVE MANAGEMENT ================= -->
+<h3 style="margin-top:40px;">Leave Requests</h3>
 
-    <div class="card">
-        <a href="admin_profile.html">My Profile</a>
-    </div>
+<table>
+    <thead>
+        <tr>
+            <th>Leave Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="leaveTable">
+        <!-- Populated by JS -->
+    </tbody>
+</table>
 
+<!-- ================= ATTENDANCE ================= -->
+<h3 style="margin-top:40px;">Attendance Records</h3>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Leave Type</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody id="leaveTable">
-            <!-- Leave data will be injected by JavaScript -->
-        </tbody>
-    </table>
-    <h2>Attendance Records</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="attendanceTable">
+        <!-- Populated by JS -->
+    </tbody>
+</table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Email</th>
-                <th>Date</th>
-                <th>Check In</th>
-                <th>Check Out</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody id="attendanceTable"></tbody>
-    </table>
-
-
-    <!-- Load JavaScript AFTER HTML -->
-    <script src="./script.js"></script>
-
-    <!-- Call loadLeaves only after script is loaded -->
-    <script>
-        loadLeaves();
-        loadAttendance();
-    </script>
+<!-- ================= SCRIPTS ================= -->
+<script src="script.js"></script>
+<script>
+    loadLeaves();
+    loadAttendance();
+</script>
 
 </body>
-
 </html>
