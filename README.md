@@ -72,8 +72,3 @@ ODOO_Hackathon/
 
 ---
 
-## How to Run the Project
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Aarsh8210/ODOO_Hackathon.git
