@@ -163,6 +163,38 @@ def admin_update_employee_profile():
             employee_profile[key] = data[key]
 
     return jsonify({"status": "Employee profile updated by admin"})
+@app.route("/signup", methods=["POST"])
+def signup():
+    data = request.get_json(force=True)
+
+    employee_id = data.get("employee_id")
+    email = data.get("email")
+    password = data.get("password")
+    role = data.get("role")
+
+    # Basic validation
+    if not employee_id or not email or not password or not role:
+        return jsonify({"error": "All fields are required"}), 400
+
+    if len(password) < 6:
+        return jsonify({"error": "Password must be at least 6 characters"}), 400
+
+    # Check if user already exists
+    for user in users:
+        if user["email"] == email:
+            return jsonify({"error": "User already exists"}), 400
+
+    # Add user (in-memory)
+    users.append({
+        "email": email,
+        "password": password,
+        "role": role
+    })
+
+    return jsonify({
+        "status": "Signup successful",
+        "note": "Email verification planned as future enhancement"
+    })
 
 
 if __name__ == "__main__":
