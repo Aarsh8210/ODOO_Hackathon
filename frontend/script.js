@@ -122,4 +122,25 @@ function checkOut() {
         else alert("Checked out successfully");
     });
 }
+function loadAttendance() {
+    fetch("http://127.0.0.1:5000/attendance/list")
+        .then(res => res.json())
+        .then(data => {
+            const table = document.getElementById("attendanceTable");
+            if (!table) return;
+
+            table.innerHTML = "";
+            data.forEach(rec => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${rec.email}</td>
+                        <td>${rec.date}</td>
+                        <td>${rec.check_in}</td>
+                        <td>${rec.check_out || "-"}</td>
+                        <td>${rec.status}</td>
+                    </tr>
+                `;
+            });
+        });
+}
 

@@ -100,13 +100,29 @@
             <!-- Leave data will be injected by JavaScript -->
         </tbody>
     </table>
+    <h2>Attendance Records</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Check In</th>
+                <th>Check Out</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="attendanceTable"></tbody>
+    </table>
+
 
     <!-- Load JavaScript AFTER HTML -->
     <script src="./script.js"></script>
 
     <!-- Call loadLeaves only after script is loaded -->
     <script>
-        loadLeaves();
+    loadLeaves();
+    loadAttendance();
     </script>
 
 </body>
