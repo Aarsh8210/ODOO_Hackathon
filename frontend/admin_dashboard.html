@@ -1,32 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Dayflow HRMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 6px 12px;
+            margin: 2px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .approve {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .reject {
+            background-color: #c0392b;
+            color: white;
+        }
+
+        .approve:hover {
+            background-color: #1e8449;
+        }
+
+        .reject:hover {
+            background-color: #922b21;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .pending {
+            color: #f39c12;
+        }
+
+        .approved {
+            color: #27ae60;
+        }
+
+        .rejected {
+            color: #c0392b;
+        }
+    </style>
 </head>
 <body>
-    <h2>Admin / HR Dashboard</h2>
 
-    <div class="card">Employee List</div>
-    <div class="card">Attendance Records</div>
-    <div class="card">Leave Approvals</div>
+    <h1>Admin Dashboard</h1>
 
     <table>
-        <tr>
-            <th>Employee</th>
-            <th>Leave Dates</th>
-            <th>Status</th>
-            <th>Action</th>
-        </tr>
-        <tr>
-            <td>John Doe</td>
-            <td>10 Jan – 12 Jan</td>
-            <td>Pending</td>
-            <td>
-                <button>Approve</button>
-                <button>Reject</button>
-            </td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Leave Type</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="leaveTable">
+            <!-- Leave data will be inserted here -->
+        </tbody>
     </table>
+
+    <script src="script.js"></script>
+    <script>
+        loadLeaves();
+    </script>
+
 </body>
 </html>
