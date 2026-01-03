@@ -265,3 +265,6 @@ function signup() {
         console.error(err);
     });
 }
+function goEmployeeDashboard() {
+    window.location.href = "employee_dashboard.html";
+}
