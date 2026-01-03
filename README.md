@@ -44,39 +44,25 @@ It streamlines core HR operations such as authentication, attendance, leave mana
 python backend/app.py
 ```
 Open frontend/login.html in browser.
+---
 ## 🔑 Demo Credentials
-
-###Employee
-
+### Employee
 Email: emp@dayflow.com
-
 Password: 1234
-
 Role: Employee
 
-###Admin / HR
-
+### Admin / HR
 Email: admin@dayflow.com
-
 Password: 1234
-
 Role: Admin / HR
 
-##🔮 Future Scope
-
+## 🔮 Future Scope
 Database integration
-
 Email verification & password hashing
-
 Payroll management
-
 Attendance analytics
 
-##👥 Team
-
+## 👥 Team
 Aarsh Shah – Team Lead & Backend
-
 Shubham Shah – Frontend
-
 Vraj Tejwani – UI & Integration
-
