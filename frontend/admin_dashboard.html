@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard - Dayflow HRMS</title>
@@ -24,7 +25,8 @@
             background-color: #fff;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px;
             border: 1px solid #ddd;
             text-align: center;
@@ -82,9 +84,15 @@
         }
     </style>
 </head>
+
 <body>
 
     <h1>Admin Dashboard</h1>
+    
+    <div class="card">
+        <a href="admin_profile.html">My Profile</a>
+    </div>
+
 
     <table>
         <thead>
@@ -121,9 +129,10 @@
 
     <!-- Call loadLeaves only after script is loaded -->
     <script>
-    loadLeaves();
-    loadAttendance();
+        loadLeaves();
+        loadAttendance();
     </script>
 
 </body>
+
 </html>
