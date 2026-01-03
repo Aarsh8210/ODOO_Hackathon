@@ -124,6 +124,28 @@ def update_profile():
     employee_profile["address"] = data.get("address", employee_profile["address"])
 
     return jsonify({"status": "Profile updated"})
+admin_profile = {
+    "name": "Admin User",
+    "email": "admin@dayflow.com",
+    "role": "Admin / HR",
+    "department": "Human Resources",
+    "phone": "9998887776",
+    "address": "Ahmedabad, Gujarat"
+}
+
+@app.route("/admin/profile", methods=["GET"])
+def get_admin_profile():
+    return jsonify(admin_profile)
+
+
+@app.route("/admin/profile/update", methods=["POST"])
+def update_admin_profile():
+    data = request.get_json(force=True)
+
+    admin_profile["phone"] = data.get("phone", admin_profile["phone"])
+    admin_profile["address"] = data.get("address", admin_profile["address"])
+
+    return jsonify({"status": "Admin profile updated"})
 
 
 if __name__ == "__main__":
