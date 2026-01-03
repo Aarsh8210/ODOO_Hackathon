@@ -143,4 +143,34 @@ function loadAttendance() {
             });
         });
 }
+function loadProfile() {
+    fetch("http://127.0.0.1:5000/profile")
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("name").innerText = data.name;
+            document.getElementById("email").innerText = data.email;
+            document.getElementById("role").innerText = data.role;
+            document.getElementById("department").innerText = data.department;
+            document.getElementById("designation").innerText = data.designation;
+            document.getElementById("salary").innerText = data.salary;
+
+            document.getElementById("phone").value = data.phone;
+            document.getElementById("address").value = data.address;
+        });
+}
+
+function updateProfile() {
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+
+    fetch("http://127.0.0.1:5000/profile/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone, address })
+    })
+    .then(res => res.json())
+    .then(() => {
+        alert("Profile updated successfully");
+    });
+}
 
