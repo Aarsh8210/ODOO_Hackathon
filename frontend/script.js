@@ -94,6 +94,7 @@ function updateLeave(index, status) {
     .then(() => {
         alert("Leave " + status);
         loadLeaves();
-    });
+    })
+    .catch(err => console.error(err));
 }
 
